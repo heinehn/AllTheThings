@@ -62,7 +62,7 @@ plt.xlabel(r'Cutoff energy [eV]', size = 20,labelpad= 5 )
 plt.ylabel(r'$\Delta$',size = 20, labelpad = 5)
 plt.title( r'$\Delta$ E bulk v.s. slab cutoff in $GaN$',size = 25 )
 plt.legend(loc='smart',fontsize = 15)
-plt.savefig('GaN_cutoff_bulkVSslab.png',bbox_inches='tight')
+#plt.savefig('GaN_cutoff_bulkVSslab.png',bbox_inches='tight')
 """
 
 
