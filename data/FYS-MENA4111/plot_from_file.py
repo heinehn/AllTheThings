@@ -9,11 +9,16 @@ file2 = "vaspout_GaN_cutoff.txt"
 file3 = "GaN_slabConvergeVac.txt"
 file4 = "GaN_vac_converge.txt"
 file5 = "10AGaNslabCutoff.txt"
+file6 = "LOCPOT_line10A.txt"
 data = np.loadtxt(file, dtype = 'float', skiprows = 1, usecols = (1,2))
 #vaspout = np.loadtxt(file, dtype = 'float', skiprows = 1, usecols = (0,1,2,3))
 bulk_cut = np.loadtxt(file, dtype = 'float', skiprows = 1, usecols = (0,1,2,3))
 slab_cut = np.loadtxt(file5, dtype = 'float', skiprows = 1, usecols = (0,1,2,3))
-#print data[:,1]
+slab_locpot = np.loadtxt(file6, dtype = 'float', skiprows = 4)
+print slab_locpot[:,1]
+
+plt.plot(slab_locpot[:,0],slab_locpot[:,1])
+
 
 """
 my_toten = slab_vac[:,3]
@@ -27,12 +32,12 @@ en_diff = absdiff(my_toten)
 press_diff = absdiff(my_press)
 drift_diff = absdiff(my_drift)
 mxF_diff = absdiff(my_mxForce)
-"""
+
 diff_bulk_slab = bulk_cut/3 - slab_cut/6
 print diff_bulk_slab[:,3]
 
 
-"""
+
 plt.figure(1)
 plt.plot(en_diff, label = '$\Delta$E')
 #plt.plot(press_diff, label = '$\Delta$P')
@@ -46,7 +51,7 @@ plt.title( r'Convergence for different vacuum distance in $GaN$',size = 25 )
 plt.legend(loc='smart',fontsize = 15)
 #plt.savefig('plot_GaN_vacuum_relax.png',bbox_inches='tight')
 
-"""
+
 #energy = data[:,1]
 #en_diff = absdiff(energy)
 cutoff_range = range(200,850,50)
@@ -63,7 +68,7 @@ plt.ylabel(r'$\Delta$',size = 20, labelpad = 5)
 plt.title( r'$\Delta$ E bulk v.s. slab cutoff in $GaN$',size = 25 )
 plt.legend(loc='smart',fontsize = 15)
 #plt.savefig('GaN_cutoff_bulkVSslab.png',bbox_inches='tight')
-"""
+
 
 
 plt.figure(2)
