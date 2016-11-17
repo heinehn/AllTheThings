@@ -12,7 +12,9 @@ file5 = "10AGaNslabCutoff.txt"
 file_pot_10 = "LOCPOT_line10A.txt"
 file_pot_12 = "LOCPOT_line12A.txt"
 file_pot_14 = "LOCPOT_line14A.txt"
-data = np.loadtxt(file, dtype = 'float', skiprows = 1, usecols = (1,2))
+file_pot_16 = "LOCPOT_line16.txt"
+
+data = np.loadtxt(file1, dtype = 'float', skiprows = 1, usecols = (1,2))
 file6 = "LOCPOT_line12A"
 data = np.loadtxt(file1, dtype = 'float', skiprows = 1, usecols = (1,2))
 #vaspout = np.loadtxt(file, dtype = 'float', skiprows = 1, usecols = (0,1,2,3))
@@ -21,7 +23,7 @@ slab_cut = np.loadtxt(file5, dtype = 'float', skiprows = 1, usecols = (0,1,2,3))
 slab_locpot10 = np.loadtxt(file_pot_10, dtype = 'float', skiprows = 4)
 slab_locpot12 = np.loadtxt(file_pot_12, dtype = 'float', skiprows = 4)
 slab_locpot14 = np.loadtxt(file_pot_14, dtype = 'float', skiprows = 4)
-slab_locpot = np.loadtxt(file6, dtype = 'float', skiprows = 4)
+slab_locpot16 = np.loadtxt(file_pot_16, dtype = 'float', skiprows = 4)
 
 
 
@@ -68,7 +70,7 @@ plt.xlabel(r'Distance [A]', size = 20,labelpad= 5 )
 plt.ylabel(r'Potensial [V]',size = 20, labelpad = 5)
 plt.title( r'Potensial vs distance in $GaN$ slab',size = 25 )
 plt.legend(loc='smart',fontsize = 15)
-plt.savefig('plot_GaN_potensial_vacuum10.eps',bbox_inches='tight')
+#plt.savefig('plot_GaN_potensial_vacuum10.eps',bbox_inches='tight')
 
 
 plt.figure(2)
@@ -82,7 +84,7 @@ plt.xlabel(r'Distance [A]', size = 20,labelpad= 5 )
 plt.ylabel(r'Potensial [V]',size = 20, labelpad = 5)
 plt.title( r'Potensial vs distance in $GaN$ slab',size = 25 )
 plt.legend(loc='smart',fontsize = 15)
-plt.savefig('plot_GaN_potensial_vacuum12.eps',bbox_inches='tight')
+#plt.savefig('plot_GaN_potensial_vacuum12.eps',bbox_inches='tight')
 
 plt.figure(3)
 plt.plot(slab_locpot14[:,0],slab_locpot14[:,1])
@@ -95,7 +97,20 @@ plt.xlabel(r'Distance [A]', size = 20,labelpad= 5 )
 plt.ylabel(r'Potensial [V]',size = 20, labelpad = 5)
 plt.title( r'Potensial vs distance in $GaN$ slab',size = 25 )
 plt.legend(loc='smart',fontsize = 15)
-plt.savefig('plot_GaN_potensial_vacuum14.eps',bbox_inches='tight')
+#plt.savefig('plot_GaN_potensial_vacuum14.eps',bbox_inches='tight')
+
+plt.figure(4)
+plt.plot(slab_locpot16[:,0],slab_locpot16[:,1])
+#plt.plot(press_diff, label = '$\Delta$P')
+#plt.plot(mxF_diff, label = '$\Delta$mxF')
+plt.grid('on')
+plt.xticks( fontsize = 20)
+plt.yticks( fontsize = 20)
+plt.xlabel(r'Distance [A]', size = 20,labelpad= 5 )
+plt.ylabel(r'Potensial [V]',size = 20, labelpad = 5)
+plt.title( r'Potensial vs distance in $GaN$ slab',size = 25 )
+plt.legend(loc='smart',fontsize = 15)
+#plt.savefig('plot_GaN_potensial_vacuum14.eps',bbox_inches='tight')
 
 
 """
