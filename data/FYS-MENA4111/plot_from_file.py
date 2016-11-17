@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 def absdiff(x):
 	return np.abs(np.diff(x))
 
-file = "vaspout_GaN_cutoff.txt"
+file1 = "vaspout_GaN_cutoff.txt"
 file2 = "vaspout_GaN_cutoff.txt"
 file3 = "GaN_slabConvergeVac.txt"
 file4 = "GaN_vac_converge.txt"
@@ -13,12 +13,16 @@ file_pot_10 = "LOCPOT_line10A.txt"
 file_pot_12 = "LOCPOT_line12A.txt"
 file_pot_14 = "LOCPOT_line14A.txt"
 data = np.loadtxt(file, dtype = 'float', skiprows = 1, usecols = (1,2))
+file6 = "LOCPOT_line12A"
+data = np.loadtxt(file1, dtype = 'float', skiprows = 1, usecols = (1,2))
 #vaspout = np.loadtxt(file, dtype = 'float', skiprows = 1, usecols = (0,1,2,3))
-bulk_cut = np.loadtxt(file, dtype = 'float', skiprows = 1, usecols = (0,1,2,3))
+bulk_cut = np.loadtxt(file1, dtype = 'float', skiprows = 1, usecols = (0,1,2,3))
 slab_cut = np.loadtxt(file5, dtype = 'float', skiprows = 1, usecols = (0,1,2,3))
 slab_locpot10 = np.loadtxt(file_pot_10, dtype = 'float', skiprows = 4)
 slab_locpot12 = np.loadtxt(file_pot_12, dtype = 'float', skiprows = 4)
 slab_locpot14 = np.loadtxt(file_pot_14, dtype = 'float', skiprows = 4)
+slab_locpot = np.loadtxt(file6, dtype = 'float', skiprows = 4)
+
 
 
 
@@ -110,7 +114,12 @@ plt.xlabel(r'Cutoff energy [eV]', size = 20,labelpad= 5 )
 plt.ylabel(r'$\Delta$',size = 20, labelpad = 5)
 plt.title( r'$\Delta$ E bulk v.s. slab cutoff in $GaN$',size = 25 )
 plt.legend(loc='smart',fontsize = 15)
+
 #plt.savefig('GaN_cutoff_bulkVSslab.png',bbox_inches='tight')
+
+
+plt.savefig('GaN_cutoff_bulkVSslab.png',bbox_inches='tight')
+
 
 
 
