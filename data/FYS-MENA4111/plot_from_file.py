@@ -110,7 +110,7 @@ plt.xlabel(r'Distance [A]', size = 20,labelpad= 5 )
 plt.ylabel(r'Potensial [V]',size = 20, labelpad = 5)
 plt.title( r'Potensial vs distance in $GaN$ slab',size = 25 )
 plt.legend(loc='smart',fontsize = 15)
-#plt.savefig('plot_GaN_potensial_vacuum14.eps',bbox_inches='tight')
+plt.savefig('plot_GaN_potensial_vacuum16.eps',bbox_inches='tight')
 
 
 """
