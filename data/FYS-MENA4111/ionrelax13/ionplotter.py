@@ -1,18 +1,18 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import os
-#Fullrelax
+#ionrelax
 
-file1 = "LOCPOT_fullrelax13_zero"
-file2 = "LOCPOT_fullrelax_25_25"
-file3 = "LOCPOT_fullrelax_25_5"
-file4 = "LOCPOT_fullrelax_25_75"
-file5 = "LOCPOT_fullrelax_5_25"
-file6 = "LOCPOT_fullrelax13_half"
-file7 = "LOCPOT_fullrelax_5_75"
-file8 = "LOCPOT_fullrelax_75_25"
-file9 = "LOCPOT_fullrelax_75_5"
-file10 = "LOCPOT_fullrelax_75_75"
+file1 = "LOCPOT_ionrelax13_zero"
+file2 = "LOCPOT_ionrelax_25_25"
+file3 = "LOCPOT_ionrelax_25_5"
+file4 = "LOCPOT_ionrelax_25_75"
+file5 = "LOCPOT_ionrelax_5_25"
+file6 = "LOCPOT_ionrelax13_half"
+file7 = "LOCPOT_ionrelax_5_75"
+file8 = "LOCPOT_ionrelax_75_25"
+file9 = "LOCPOT_ionrelax_75_5"
+file10 = "LOCPOT_ionrelax_75_75"
 
 
 
@@ -24,10 +24,8 @@ vacumeslab = np.zeros((1,lenght))
 marker = ['.','o','*','v','s']
 files = [file1,file2,file3,file4,file5,file6,file7,file8,file9,file10]
 names = ['(0,0)','(0.25,0.25)','(0.25,0.5)','(0.27,0.75)','(0.5,0.25)','(0.5,0.5)','(0.5,0.75)','(0.75,0.25)','(0.75,0.5)','(0.75,0.75)']
-textfile = open("tableOfMIP_fullrelax","w")
+textfile = open("tableOfMIP_ionrelax","w")
 
-line_MIP = 0
-line_count = 0
 vacuumepart = []
 for i in range(len(files)):
 	slab = np.loadtxt(files[i], dtype = 'float', skiprows = 4)
@@ -47,10 +45,9 @@ for i in range(len(files)):
 	line_MIP =  str(abs(line_MIP/line_count))
 	line = str(names[i] + ' = ' + line_MIP + '\n')
 	textfile.write(line)
-	
-	plt.figure(i)
-	#plt.plot(slab[:,0],slab[:,1]-vacuume)
-	plt.plot(slab[:,0],slab[:,1]-vacuume,label='(b,c) = ' + names[i])
+
+	plt.figure(1)
+	plt.plot(slab[:,0],slab[:,1]-vacuume)
 
 	meanslab += (slab[:,1] - vacuume)/len(files)
 	newslab = [slab[:,0],meanslab]
@@ -75,5 +72,5 @@ plt.text(44,-55,'MIP = ' + str(MIP) + 'V',size=15)
 
 plt.xticks( fontsize = 20)
 plt.yticks( fontsize = 20)
-#plt.savefig('FULLRELAX.eps',bbox_inches='tight')
+plt.savefig('ION.eps',bbox_inches='tight')
 plt.show()
